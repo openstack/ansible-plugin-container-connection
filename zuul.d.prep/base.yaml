@@ -1,0 +1,19 @@
+---
+- job:
+    description: Base ansible-connection-plugin job
+    name: ansible-connection-plugin-centos-7-base
+    nodeset: centos-7
+    parent: base
+    pre-run:
+    - zuul.d/playbooks/prepare-test-host.yml
+    - zuul.d/playbooks/pre.yml
+    run:
+    - zuul.d/playbooks/run.yml
+    timeout: 1800
+    voting: true
+- job:
+    files:
+    - ^doc/.*
+    - ^README.rst
+    name: ansible-connection-plugin-docs
+    parent: openstack-tox-docs

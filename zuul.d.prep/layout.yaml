@@ -1,0 +1,17 @@
+---
+- project:
+    templates:
+    - ansible-connection-plugin-molecule-jobs
+    - release-notes-jobs-python3
+    check:
+      jobs:
+      - openstack-tox-linters
+      - ansible-connection-plugin-docs
+    gate:
+      jobs:
+      - openstack-tox-linters
+      - ansible-connection-plugin-docs
+    post:
+      jobs:
+      - publish-openstack-python-branch-tarball
+      - publish-openstack-tox-docs

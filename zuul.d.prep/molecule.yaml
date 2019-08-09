@@ -1,0 +1,14 @@
+---
+- project-template:
+    check:
+      jobs:
+      - ansible-connection-plugin-centos-7-molecule-docker
+    gate:
+      jobs:
+      - ansible-connection-plugin-centos-7-molecule-docker
+    name: ansible-connection-plugin-molecule-jobs
+- job:
+    name: ansible-connection-plugin-centos-7-molecule-docker
+    parent: ansible-connection-plugin-centos-7-base
+    vars:
+      container_tech: docker
